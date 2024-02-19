@@ -1,17 +1,19 @@
 package com.coffee.entity;
 
-public class Order {
+import java.util.ArrayList;
+
+public class OrderOutput {
     String id;
-    String goods;
+    ArrayList<OrderGoods> goods;
     String user;
     String date;
     double price;
     int status;
 
-    public Order() {
+    public OrderOutput() {
     }
 
-    public Order(String id, String goods, String user, String date, double price, int status) {
+    public OrderOutput(String id, ArrayList<OrderGoods> goods, String user, String date, double price, int status) {
         this.id = id;
         this.goods = goods;
         this.user = user;
@@ -28,11 +30,11 @@ public class Order {
         this.id = id;
     }
 
-    public String getGoods() {
+    public ArrayList<OrderGoods> getGoods() {
         return goods;
     }
 
-    public void setGoods(String goods) {
+    public void setGoods(ArrayList<OrderGoods> goods) {
         this.goods = goods;
     }
 
@@ -70,9 +72,9 @@ public class Order {
 
     @Override
     public String toString() {
-        return "Order{" +
+        return "OrderOutput{" +
                 "id='" + id + '\'' +
-                ", goods='" + goods + '\'' +
+                ", goods=" + goods +
                 ", user='" + user + '\'' +
                 ", date='" + date + '\'' +
                 ", price=" + price +
