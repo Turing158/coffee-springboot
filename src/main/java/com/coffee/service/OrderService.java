@@ -1,7 +1,7 @@
 package com.coffee.service;
 
-import com.coffee.dao.GoodsDao;
-import com.coffee.entity.Goods;
+import com.coffee.dao.OrderDao;
+import com.coffee.entity.Order;
 import com.coffee.entity.Res;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -9,12 +9,13 @@ import org.springframework.stereotype.Service;
 import java.util.List;
 
 @Service
-public class GoodsService {
+public class OrderService {
     @Autowired
-    GoodsDao goodsDao;
+    OrderDao orderDao;
 
-    public Res findAll(){
-        List<Goods> list = goodsDao.findAll();
+
+    public Res findAll(String user){
+        List<Order> list = orderDao.findOrderByUser(user);
         Res res = new Res(200,"success",list);
         return res;
     }
