@@ -7,19 +7,26 @@ public class Order {
     String date;
     double price;
     int status;
-    int num;
+    int number;
+    String useform;
+    String reservation;
+    String note;
+
 
     public Order() {
     }
 
-    public Order(String id, String goods, String user, String date, double price, int status, int num) {
+    public Order(String id, String goods, String user, String date, double price, int status, int number, String useform, String reservation, String note) {
         this.id = id;
         this.goods = goods;
         this.user = user;
         this.date = date;
         this.price = price;
         this.status = status;
-        this.num = num;
+        this.number = number;
+        this.useform = useform;
+        this.reservation = reservation;
+        this.note = note;
     }
 
     public String getId() {
@@ -70,12 +77,36 @@ public class Order {
         this.status = status;
     }
 
-    public int getNum() {
-        return num;
+    public int getNumber() {
+        return number;
     }
 
-    public void setNum(int num) {
-        this.num = num;
+    public void setNumber(int number) {
+        this.number = number;
+    }
+
+    public String getUseform() {
+        return useform;
+    }
+
+    public void setUseform(String useform) {
+        this.useform = useform;
+    }
+
+    public String getReservation() {
+        return reservation;
+    }
+
+    public void setReservation(String reservation) {
+        this.reservation = reservation;
+    }
+
+    public String getNote() {
+        return note;
+    }
+
+    public void setNote(String note) {
+        this.note = note;
     }
 
     @Override
@@ -87,7 +118,10 @@ public class Order {
                 ", date='" + date + '\'' +
                 ", price=" + price +
                 ", status=" + status +
-                ", num=" + num +
+                ", number=" + number +
+                ", useform='" + useform + '\'' +
+                ", reservation='" + reservation + '\'' +
+                ", note='" + note + '\'' +
                 '}';
     }
 }

@@ -18,8 +18,5 @@ public class OrderDao {
         return jdbcTemplate.query(sql,new BeanPropertyRowMapper<>(Order.class), user);
     }
 
-    public int addOrder(Order order){
-        String sql = "insert into orders(id,goods,user,date,price,status) values(?,?,?,?,?,?)";
-        return jdbcTemplate.update(sql, order.getId(), order.getGoods(), order.getUser(), order.getDate(), order.getPrice(), order.getStatus());
-    }
+
 }
