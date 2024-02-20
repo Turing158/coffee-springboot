@@ -45,7 +45,7 @@ public class UserService {
             return res;
         }
         else{
-            User userObj = new User(user,password,"新用户",0,Integer.parseInt(phone));
+            User userObj = new User(user,password,"新用户",0,phone);
             int i = userDao.addUser(userObj);
             if(i == 1){
                 res.setStatus(200);

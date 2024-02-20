@@ -18,4 +18,10 @@ public class UserController {
         Res res = userService.login(user,password);
         return res;
     }
+
+    @PostMapping("/user/reg")
+    public Res reg(String user, String password, String phone){
+        Res res = userService.reg(user,password,phone);
+        return res;
+    }
 }

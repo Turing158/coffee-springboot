@@ -14,7 +14,7 @@ public class OrderDao {
 
 
     public List<Order> findOrderByUser(String user){
-        String sql = "select * from orders where user = ?";
+        String sql = "select * from orders where user = ? order by date desc";
         return jdbcTemplate.query(sql,new BeanPropertyRowMapper<>(Order.class), user);
     }
 
