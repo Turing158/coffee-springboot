@@ -9,17 +9,19 @@ public class OrderOutput {
     String date;
     double price;
     int status;
+    int num;
 
     public OrderOutput() {
     }
 
-    public OrderOutput(String id, ArrayList<OrderGoods> goods, String user, String date, double price, int status) {
+    public OrderOutput(String id, ArrayList<OrderGoods> goods, String user, String date, double price, int status, int num) {
         this.id = id;
         this.goods = goods;
         this.user = user;
         this.date = date;
         this.price = price;
         this.status = status;
+        this.num = num;
     }
 
     public String getId() {
@@ -70,6 +72,14 @@ public class OrderOutput {
         this.status = status;
     }
 
+    public int getNum() {
+        return num;
+    }
+
+    public void setNum(int num) {
+        this.num = num;
+    }
+
     @Override
     public String toString() {
         return "OrderOutput{" +
@@ -79,6 +89,7 @@ public class OrderOutput {
                 ", date='" + date + '\'' +
                 ", price=" + price +
                 ", status=" + status +
+                ", num=" + num +
                 '}';
     }
 }
