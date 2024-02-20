@@ -4,7 +4,9 @@ public class Res {
     int status;
     String msg;
     Object data;
+    public Res() {
 
+    }
     public Res(int status, String msg, Object data) {
         this.status = status;
         this.msg = msg;

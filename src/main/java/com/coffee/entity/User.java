@@ -5,6 +5,19 @@ public class User {
     String password;
     String name;
     int num;
+    int phone;
+
+    public User() {
+
+    }
+
+    public User(String user, String password, String name, int num, int phone) {
+        this.user = user;
+        this.password = password;
+        this.name = name;
+        this.num = num;
+        this.phone = phone;
+    }
 
     public String getUser() {
         return user;
@@ -36,5 +49,13 @@ public class User {
 
     public void setNum(int num) {
         this.num = num;
+    }
+
+    public int getPhone() {
+        return phone;
+    }
+
+    public void setPhone(int phone) {
+        this.phone = phone;
     }
 }
