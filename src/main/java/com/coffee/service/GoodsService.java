@@ -12,7 +12,7 @@ import java.util.List;
 public class GoodsService {
     @Autowired
     GoodsDao goodsDao;
-
+//  获取所有商品
     public Res findAll(){
         List<Goods> list = goodsDao.findAll();
         Res res = new Res(200,"success",list);

@@ -13,7 +13,7 @@ import java.util.List;
 public class GoodsDao {
     @Resource
     JdbcTemplate jdbcTemplate;
-
+//    查询所有商品
     public List<Goods> findAll() {
         String sql = "select * from goods ";
         return jdbcTemplate.query(sql,new BeanPropertyRowMapper<>(Goods.class));
