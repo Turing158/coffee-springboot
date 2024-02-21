@@ -8,8 +8,8 @@ public class Goods {
     String classname;
     String temperature;
     String sugar;
-
     String img;
+    int num;
 
 
 
@@ -89,5 +89,13 @@ public class Goods {
 
     public void setTemperature(String temperature) {
         this.temperature = temperature;
+    }
+
+    public int getNum() {
+        return num;
+    }
+
+    public void setNum(int num) {
+        this.num = num;
     }
 }

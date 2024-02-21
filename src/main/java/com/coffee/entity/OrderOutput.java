@@ -4,13 +4,13 @@ import java.util.ArrayList;
 
 public class OrderOutput {
     String id;
-    ArrayList<OrderGoods> goods;
+    Goods[] goods;
     String user;
     String date;
     double price;
     int status;
     int number;
-    String useform;
+    String useForm;
     String reservation;
     String note;
 
@@ -18,7 +18,7 @@ public class OrderOutput {
     public OrderOutput() {
     }
 
-    public OrderOutput(String id, ArrayList<OrderGoods> goods, String user, String date, double price, int status, int number, String useform, String reservation, String note) {
+    public OrderOutput(String id, Goods[] goods, String user, String date, double price, int status, int number, String useForm, String reservation, String note) {
         this.id = id;
         this.goods = goods;
         this.user = user;
@@ -26,7 +26,7 @@ public class OrderOutput {
         this.price = price;
         this.status = status;
         this.number = number;
-        this.useform = useform;
+        this.useForm = useForm;
         this.reservation = reservation;
         this.note = note;
     }
@@ -39,11 +39,11 @@ public class OrderOutput {
         this.id = id;
     }
 
-    public ArrayList<OrderGoods> getGoods() {
+    public Goods[] getGoods() {
         return goods;
     }
 
-    public void setGoods(ArrayList<OrderGoods> goods) {
+    public void setGoods(Goods[] goods) {
         this.goods = goods;
     }
 
@@ -87,12 +87,12 @@ public class OrderOutput {
         this.number = number;
     }
 
-    public String getUseform() {
-        return useform;
+    public String getUseForm() {
+        return useForm;
     }
 
-    public void setUseform(String useform) {
-        this.useform = useform;
+    public void setUseForm(String useForm) {
+        this.useForm = useForm;
     }
 
     public String getReservation() {
@@ -121,7 +121,7 @@ public class OrderOutput {
                 ", price=" + price +
                 ", status=" + status +
                 ", number=" + number +
-                ", useform='" + useform + '\'' +
+                ", useForm='" + useForm + '\'' +
                 ", reservation='" + reservation + '\'' +
                 ", note='" + note + '\'' +
                 '}';

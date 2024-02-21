@@ -26,7 +26,7 @@ public class OrderDao {
 
     public int addOrder(Order order){
         String sql = "insert into orders values(?,?,?,?,?,?,?,?,?,?)";
-        Object[] args = {order.getId(), order.getGoods(), order.getUser(), order.getDate(), order.getPrice(), order.getStatus(), order.getNumber(), order.getUseform(), order.getReservation(), order.getNote()};
+        Object[] args = {order.getId(), order.getGoods(), order.getUser(), order.getDate(), order.getPrice(), order.getStatus(), order.getNumber(), order.getUseForm(), order.getReservation(), order.getNote()};
         return jdbcTemplate.update(sql, args);
     }
 

@@ -2,6 +2,7 @@ package com.coffee.entity;
 
 public class OrderGoods {
     int id;
+    String name;
     int num;
     String temperature;
     String sugar;

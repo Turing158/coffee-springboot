@@ -8,7 +8,7 @@ public class Order {
     double price;
     int status;
     int number;
-    String useform;
+    String useForm;
     String reservation;
     String note;
 
@@ -16,7 +16,7 @@ public class Order {
     public Order() {
     }
 
-    public Order(String id, String goods, String user, String date, double price, int status, int number, String useform, String reservation, String note) {
+    public Order(String id, String goods, String user, String date, double price, int status, int number, String useForm, String reservation, String note) {
         this.id = id;
         this.goods = goods;
         this.user = user;
@@ -24,7 +24,7 @@ public class Order {
         this.price = price;
         this.status = status;
         this.number = number;
-        this.useform = useform;
+        this.useForm = useForm;
         this.reservation = reservation;
         this.note = note;
     }
@@ -85,12 +85,12 @@ public class Order {
         this.number = number;
     }
 
-    public String getUseform() {
-        return useform;
+    public String getUseForm() {
+        return useForm;
     }
 
-    public void setUseform(String useform) {
-        this.useform = useform;
+    public void setUseForm(String useForm) {
+        this.useForm = useForm;
     }
 
     public String getReservation() {
@@ -119,7 +119,7 @@ public class Order {
                 ", price=" + price +
                 ", status=" + status +
                 ", number=" + number +
-                ", useform='" + useform + '\'' +
+                ", useForm='" + useForm + '\'' +
                 ", reservation='" + reservation + '\'' +
                 ", note='" + note + '\'' +
                 '}';
