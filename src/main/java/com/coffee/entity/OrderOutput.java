@@ -17,7 +17,6 @@ public class OrderOutput {
 
     public OrderOutput() {
     }
-
     public OrderOutput(String id, Goods[] goods, String user, String date, double price, int status, int number, String useForm, String reservation, String note) {
         this.id = id;
         this.goods = goods;
@@ -30,7 +29,17 @@ public class OrderOutput {
         this.reservation = reservation;
         this.note = note;
     }
-
+    public void OrderToOrderOutputExceptGoods(Order order){
+        this.id = order.id;
+        this.user = order.user;
+        this.date = order.date;
+        this.price = order.price;
+        this.status = order.status;
+        this.number = order.number;
+        this.useForm = order.useForm;
+        this.reservation = order.reservation;
+        this.note = order.note;
+    }
     public String getId() {
         return id;
     }
@@ -126,4 +135,5 @@ public class OrderOutput {
                 ", note='" + note + '\'' +
                 '}';
     }
+
 }

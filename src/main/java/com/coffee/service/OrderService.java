@@ -24,10 +24,19 @@ public class OrderService {
     GoodsDao goodsDao;
 
 
-    public Res findAll(String user){
-        List<Order> list = orderDao.findOrderByUser(user);
-        Res res = new Res(200,"success",list);
-        return res;
+    public Res findAll(String user) throws JsonProcessingException {
+        List<Order> orderList = orderDao.findOrderByUser(user);
+        List<OrderOutput> orderOutputs = new ArrayList<>();
+        for (int i = 0; i < orderList.size(); i++) {
+            OrderOutput orderOutput = new OrderOutput();
+            orderOutput.OrderToOrderOutputExceptGoods(orderList.get(i));
+            String goodsStr = orderList.get(i).getGoods();
+            ObjectMapper mapper = new ObjectMapper();
+            Goods[] goods = mapper.readValue(goodsStr, Goods[].class);
+            orderOutput.setGoods(checkGoods(goods));
+            orderOutputs.add(orderOutput);
+        }
+        return new Res(200,"success",orderOutputs);
     }
 
     public Res payOrder(Order order) throws JsonProcessingException {
@@ -47,30 +56,12 @@ public class OrderService {
         if(i == 1){
             res.setStatus(200);
             res.setMsg("数据添加成功");
-            List<Goods> goodsList = goodsDao.findAll();
             OrderOutput orderOutput = new OrderOutput();
-            orderOutput.setId(order.getId());
+            orderOutput.OrderToOrderOutputExceptGoods(order);
             String goodsStr = order.getGoods();
             ObjectMapper mapper = new ObjectMapper();
             Goods[] goods =  mapper.readValue(goodsStr, Goods[].class);
-            for (int j = 0; j < goods.length; j++) {
-                for (int k = 0; k < goodsList.size(); k++) {
-                    if (goods[j].getId() == goodsList.get(k).getId()){
-                        goods[j].setImg(goodsList.get(k).getImg());
-                        goods[j].setName(goodsList.get(k).getName());
-                        goods[j].setPrice(goodsList.get(k).getPrice());
-                    }
-                }
-            }
-            orderOutput.setGoods(goods);
-            orderOutput.setUser(order.getUser());
-            orderOutput.setDate(order.getDate());
-            orderOutput.setPrice(order.getPrice());
-            orderOutput.setStatus(order.getStatus());
-            orderOutput.setNumber(order.getNumber());
-            orderOutput.setUseForm(order.getUseForm());
-            orderOutput.setReservation(order.getReservation());
-            orderOutput.setNote(order.getNote());
+            orderOutput.setGoods(checkGoods(goods));
             res.setData(orderOutput);
         }
         return res;
@@ -93,5 +84,18 @@ public class OrderService {
             return "0" + num;
         }
         return ""+num;
+    }
+    public Goods[] checkGoods(Goods[] goods){
+        List<Goods> goodsList = goodsDao.findAll();
+        for (int i = 0; i < goods.length; i++) {
+            for (int j = 0; j < goodsList.size(); j++) {
+                if (goods[i].getId() == goodsList.get(j).getId()){
+                    goods[i].setImg(goodsList.get(j).getImg());
+                    goods[i].setName(goodsList.get(j).getName());
+                    goods[i].setPrice(goodsList.get(j).getPrice());
+                }
+            }
+        }
+        return goods;
     }
 }

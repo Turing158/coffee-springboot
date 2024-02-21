@@ -15,7 +15,7 @@ public class OrderController {
     OrderService orderService;
 
     @PostMapping("/order/findAll")
-    public Res findAll(String user){
+    public Res findAll(String user) throws JsonProcessingException {
         return orderService.findAll(user);
     }
     @PostMapping("/order/payOrder")
