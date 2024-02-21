@@ -1,6 +1,7 @@
 package com.coffee.controller;
 
 
+import com.coffee.entity.Order;
 import com.coffee.entity.Res;
 import com.coffee.service.OrderService;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -15,5 +16,9 @@ public class OrderController {
     @PostMapping("/order/findAll")
     public Res findAll(String user){
         return orderService.findAll(user);
+    }
+    @PostMapping("/order/payOrder")
+    public Res payOrder(Order order){
+        return new Res(0,"支付成功");
     }
 }
